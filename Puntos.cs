@@ -8,5 +8,8 @@ namespace MetodoMinimosCuadrados
     {
         public double Xi { get; set; }
         public double Yi { get; set; }
+        public double XiCuadrado { get; set; }
+        public double XiYi { get; set; }
+        public double YModelado { get; set; }
     }
 }

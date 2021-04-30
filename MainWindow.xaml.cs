@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,7 +41,7 @@ namespace MetodoMinimosCuadrados
             c = matriz[1, 0];
             d = matriz[1, 1];
 
-            double multiplicando = 1 / ((a * d) - (b - c));
+            double multiplicando = 1 / ((a * d) - (b * c));
 
             matriz[0, 0] = d;
             matriz[1, 1] = a;
@@ -96,6 +97,9 @@ namespace MetodoMinimosCuadrados
                 sumatoriaYi += puntos.Yi;
                 sumatoriaXiCuadrado += Math.Pow(puntos.Xi, 2);
                 xiYi += (puntos.Xi * puntos.Yi);
+
+                puntos.XiCuadrado = Math.Pow(puntos.Xi, 2);
+                puntos.XiYi = puntos.Xi * puntos.Yi;
             }
 
             double[,] matrizA = new double[2, 2] { { n, sumatoriaXi }, { sumatoriaXi, sumatoriaXiCuadrado } };
@@ -107,7 +111,15 @@ namespace MetodoMinimosCuadrados
             double a0 = matrizC[0, 0];
             double a1 = matrizC[1, 0];
 
-            MessageBox.Show($"a0 = {a0}, a1 = {a1}");
+            foreach (Puntos puntos in _puntos)
+            {
+                puntos.YModelado = a0 + (a1 * puntos.Xi);
+            }
+
+            DgIteraciones.Items.Refresh();
+
+            TxtA0.Text = a0.ToString();
+            TxtA1.Text = a1.ToString();
         }
 
         private void BtnLimpiar_Click(object sender, RoutedEventArgs e)

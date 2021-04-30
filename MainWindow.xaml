@@ -9,15 +9,15 @@
         SizeToContent="WidthAndHeight" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="103*"></ColumnDefinition>
-            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <GroupBox Header="Valores" Grid.Column="0" Grid.Row="0" BorderBrush="Black" Margin="5,5,5,5" Padding="5" Grid.ColumnSpan="2">
+        <GroupBox Header="Valores" Grid.Column="0" Grid.Row="0" BorderBrush="Black" Margin="5,5,5,5" Padding="5" >
             <WrapPanel>
                 <TextBlock Text="Xi = "></TextBlock>
                 <TextBox x:Name="TxtValorXi" Width="50" Margin="10,0" IsReadOnly="False"></TextBox>
@@ -28,13 +28,24 @@
                 <Button x:Name="BtnLimpiar" Padding="5,0" Content="Limpiar" Click="BtnLimpiar_Click"></Button>
             </WrapPanel>
         </GroupBox>
-        <GroupBox Header="Puntos" Grid.Column="0" Grid.Row="1" BorderBrush="Black" Margin="5,5,5,5" Padding="5" Grid.ColumnSpan="2">
+        <GroupBox Header="Puntos" Grid.Column="0" Grid.Row="1" BorderBrush="Black" Margin="5,5,5,5" Padding="5">
             <DataGrid x:Name="DgIteraciones" IsReadOnly="True" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Xi" Binding="{Binding Xi}" CanUserSort="False" ></DataGridTextColumn>
                     <DataGridTextColumn Header="Yi" Binding="{Binding Yi}" CanUserSort="False" ></DataGridTextColumn>
+                    <DataGridTextColumn Header="Xi^2" Binding="{Binding XiCuadrado}" CanUserSort="False" ></DataGridTextColumn>
+                    <DataGridTextColumn Header="XiYi" Binding="{Binding XiYi}" CanUserSort="False" ></DataGridTextColumn>
+                    <DataGridTextColumn Header="Y Modelado" Binding="{Binding YModelado}" CanUserSort="False" ></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
+        </GroupBox>
+        <GroupBox Header="Resultados" Grid.Column="0" Grid.Row="2" BorderBrush="Black" Margin="5" Padding="5" >
+            <WrapPanel>
+                <TextBlock Text="a0 = "></TextBlock>
+                <TextBox x:Name="TxtA0" IsReadOnly="True" Width="150" Margin="0,0,10,0"></TextBox>
+                <TextBlock Text="a1 = "></TextBlock>
+                <TextBox x:Name="TxtA1" IsReadOnly="True" Width="150" Margin="0,0,10,0"></TextBox>
+            </WrapPanel>
         </GroupBox>
     </Grid>
 </Window>
