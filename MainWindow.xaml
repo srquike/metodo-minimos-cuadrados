@@ -1,0 +1,40 @@
+﻿<Window x:Class="MetodoMinimosCuadrados.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MetodoMinimosCuadrados"
+        mc:Ignorable="d"
+        Title="Ajuste de curvas: Método de mínimos cuadrados" Height="450" Width="800"
+        SizeToContent="WidthAndHeight" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="103*"></ColumnDefinition>
+            <ColumnDefinition Width="57*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Valores" Grid.Column="0" Grid.Row="0" BorderBrush="Black" Margin="5,5,5,5" Padding="5" Grid.ColumnSpan="2">
+            <WrapPanel>
+                <TextBlock Text="Xi = "></TextBlock>
+                <TextBox x:Name="TxtValorXi" Width="50" Margin="10,0" IsReadOnly="False"></TextBox>
+                <TextBlock Text="Yi = "></TextBlock>
+                <TextBox x:Name="TxtValorYi" Width="50" Margin="10,0" IsReadOnly="False"></TextBox>
+                <Button x:Name="BtnAgregar" Padding="5,0" Content="Agregar" Margin="10,0" UseLayoutRounding="False" Click="BtnAgregar_Click" ></Button>
+                <Button x:Name="BtnCalcular" Padding="5,0" Content="Calcular" Margin="10,0" UseLayoutRounding="False" Click="BtnCalcular_Click"></Button>
+                <Button x:Name="BtnLimpiar" Padding="5,0" Content="Limpiar" Click="BtnLimpiar_Click"></Button>
+            </WrapPanel>
+        </GroupBox>
+        <GroupBox Header="Puntos" Grid.Column="0" Grid.Row="1" BorderBrush="Black" Margin="5,5,5,5" Padding="5" Grid.ColumnSpan="2">
+            <DataGrid x:Name="DgIteraciones" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Xi" Binding="{Binding Xi}" CanUserSort="False" ></DataGridTextColumn>
+                    <DataGridTextColumn Header="Yi" Binding="{Binding Yi}" CanUserSort="False" ></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+    </Grid>
+</Window>
